@@ -15,7 +15,7 @@ abstract class Validator
 
     public function __construct(EmailAddress $emailAddress = null, EmailDataProviderInterface $emailDataProvider = null)
     {
-        $this->emailAddress = $emailAddress;
+        $this->emailAddress      = $emailAddress;
         $this->emailDataProvider = $emailDataProvider;
     }
 

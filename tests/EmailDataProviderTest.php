@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Tests;
 
 use EmailValidation\EmailDataProvider;

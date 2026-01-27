@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Tests\Validations;
 
 use EmailValidation\EmailAddress;
@@ -16,7 +18,7 @@ class RoleBasedEmailValidatorTest extends TestCase
     {
         $roleBasedEmailValidator = new RoleBasedEmailValidator(
             new EmailAddress($emailAddress),
-            new EmailDataProvider()
+            new EmailDataProvider(),
         );
 
         $this->assertSame($expectedResult, $roleBasedEmailValidator->getResultResponse());

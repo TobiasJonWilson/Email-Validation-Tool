@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Tests;
 
 use EmailValidation\ValidationResults;
@@ -12,9 +14,9 @@ class ValidationResultsTest extends TestCase
     public function testAddResult(): void
     {
         $this->validationResults->addResult('a-key', 'a-value');
-        $actual = $this->validationResults->asArray();
+        $actual   = $this->validationResults->asArray();
         $expected = [
-            'a-key' => 'a-value'
+            'a-key' => 'a-value',
         ];
 
         $this->assertSame($expected, $actual);
@@ -23,9 +25,9 @@ class ValidationResultsTest extends TestCase
     public function testReturnsJson()
     {
         $this->validationResults->addResult('a-key', 'a-value');
-        $actual = $this->validationResults->asJson();
+        $actual   = $this->validationResults->asJson();
         $expected = json_encode([
-            'a-key' => 'a-value'
+            'a-key' => 'a-value',
         ]);
 
         $this->assertSame($expected, $actual);

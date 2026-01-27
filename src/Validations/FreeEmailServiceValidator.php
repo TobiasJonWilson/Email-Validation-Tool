@@ -16,7 +16,7 @@ class FreeEmailServiceValidator extends Validator implements ValidatorInterface
         return in_array(
             $this->getEmailAddress()->getHostPart(),
             $this->getEmailDataProvider()->getEmailProviders(),
-            true
+            true,
         );
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Tests;
 
 use EmailValidation\EmailAddress;
@@ -44,9 +46,10 @@ class EmailValidationTest extends TestCase
         $this->validationResultsMock->shouldReceive('addResult')->times(1);
         $this->validationResultsMock->shouldReceive('hasResults')->andReturn(false);
         $this->validationResultsMock->shouldReceive('getValidationResults')->andReturnSelf();
-        $this->validationResultsMock->shouldReceive('asArray')->andReturn([
-                'valid_email' => true
-            ]
+        $this->validationResultsMock->shouldReceive('asArray')->andReturn(
+            [
+                'valid_email' => true,
+            ],
         );
 
         /** @var ValidFormatValidator|MockInterface $mockValidation */
@@ -65,13 +68,13 @@ class EmailValidationTest extends TestCase
 
     protected function setUp(): void
     {
-        $emailMock = Mockery::mock(EmailAddress::class);
+        $emailMock                   = Mockery::mock(EmailAddress::class);
         $this->validationResultsMock = Mockery::mock(ValidationResults::class);
-        $emailDataProviderMock = Mockery::mock(EmailDataProvider::class);
-        $this->emailValidation = new EmailValidator(
+        $emailDataProviderMock       = Mockery::mock(EmailDataProvider::class);
+        $this->emailValidation       = new EmailValidator(
             $emailMock,
             $this->validationResultsMock,
-            $emailDataProviderMock
+            $emailDataProviderMock,
         );
     }
 }

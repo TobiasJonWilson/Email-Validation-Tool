@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Tests;
 
 use EmailValidation\EmailAddress;
@@ -8,6 +10,7 @@ use PHPUnit\Framework\TestCase;
 class EmailAddressTest extends TestCase
 {
     private const VALID_TEST_EMAIL = 'dave@gmail.com';
+
     private const INVALID_TEST_EMAIL = 'dave----gmail.com';
 
     private EmailAddress $validEmail;
@@ -61,7 +64,7 @@ class EmailAddressTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->validEmail = new EmailAddress(self::VALID_TEST_EMAIL);
+        $this->validEmail   = new EmailAddress(self::VALID_TEST_EMAIL);
         $this->invalidEmail = new EmailAddress(self::INVALID_TEST_EMAIL);
     }
 }

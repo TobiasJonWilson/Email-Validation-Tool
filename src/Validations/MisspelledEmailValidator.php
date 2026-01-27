@@ -10,6 +10,7 @@ namespace EmailValidation\Validations;
 class MisspelledEmailValidator extends Validator implements ValidatorInterface
 {
     private const MINIMUM_WORD_DISTANCE_DOMAIN = 2;
+
     private const MINIMUM_WORD_DISTANCE_TLD = 1;
 
     public function getValidatorName(): string
@@ -40,7 +41,7 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
             return str_replace(
                 $this->getEmailAddress()->getHostPart(),
                 $domainSuggestion,
-                $this->getEmailAddress()->asString()
+                $this->getEmailAddress()->asString(),
             );
         }
 
@@ -48,7 +49,7 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
             return str_replace(
                 $this->getEmailAddress()->getTopLevelDomainPart(),
                 $topLevelDomainSuggestion,
-                $this->getEmailAddress()->asString()
+                $this->getEmailAddress()->asString(),
             );
         }
 
@@ -60,11 +61,11 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
      */
     private function findDomainSuggestion()
     {
-        $domain = $this->getEmailAddress()->getHostPart();
+        $domain        = $this->getEmailAddress()->getHostPart();
         $possibleMatch = $this->findClosestWord(
             $domain,
             $this->getEmailDataProvider()->getEmailProviders(),
-            self::MINIMUM_WORD_DISTANCE_DOMAIN
+            self::MINIMUM_WORD_DISTANCE_DOMAIN,
         );
 
         return $domain === $possibleMatch ? null : $possibleMatch;
@@ -81,7 +82,7 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
             $distance = levenshtein($stringToCheck, $testedWord);
             if ($distance <= $minimumDistance) {
                 $minimumDistance = $distance - 1;
-                $closestMatch = $testedWord;
+                $closestMatch    = $testedWord;
             }
         }
 
@@ -93,11 +94,11 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
      */
     private function findTopLevelDomainSuggestion()
     {
-        $topLevelDomain = $this->getEmailAddress()->getTopLevelDomainPart();
+        $topLevelDomain        = $this->getEmailAddress()->getTopLevelDomainPart();
         $possibleTopLevelMatch = $this->findClosestWord(
             $topLevelDomain,
             $this->getEmailDataProvider()->getTopLevelDomains(),
-            self::MINIMUM_WORD_DISTANCE_TLD
+            self::MINIMUM_WORD_DISTANCE_TLD,
         );
 
         return $topLevelDomain === $possibleTopLevelMatch ? null : $possibleTopLevelMatch;

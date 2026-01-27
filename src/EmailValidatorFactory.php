@@ -23,18 +23,18 @@ class EmailValidatorFactory
         FreeEmailServiceValidator::class,
         DisposableEmailValidator::class,
         RoleBasedEmailValidator::class,
-        EmailHostValidator::class
+        EmailHostValidator::class,
     ];
 
     public static function create(string $emailAddress): EmailValidator
     {
-        $emailAddress = new EmailAddress($emailAddress);
-        $emailDataProvider = new EmailDataProvider();
+        $emailAddress           = new EmailAddress($emailAddress);
+        $emailDataProvider      = new EmailDataProvider();
         $emailValidationResults = new ValidationResults();
-        $emailValidator = new EmailValidator($emailAddress, $emailValidationResults, $emailDataProvider);
+        $emailValidator         = new EmailValidator($emailAddress, $emailValidationResults, $emailDataProvider);
 
         foreach (self::$defaultValidators as $validator) {
-            $emailValidator->registerValidator(new $validator);
+            $emailValidator->registerValidator(new $validator());
         }
 
         return $emailValidator;

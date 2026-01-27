@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Tests\Validations;
 
 use EmailValidation\EmailAddress;
@@ -16,7 +18,7 @@ class ValidFormatValidatorTest extends TestCase
     public function testIsValidFormat($emailAddress, bool $expectedResult): void
     {
         $disposableEmailValidation = new ValidFormatValidator(
-            new EmailAddress($emailAddress)
+            new EmailAddress($emailAddress),
         );
 
         $this->assertSame($expectedResult, $disposableEmailValidation->getResultResponse());

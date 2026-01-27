@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Tests\Validations;
 
 use EmailValidation\EmailAddress;
@@ -16,7 +18,7 @@ class DisposableEmailValidatorTest extends TestCase
     {
         $disposableEmailValidation = new DisposableEmailValidator(
             new EmailAddress($emailAddress),
-            new EmailDataProvider()
+            new EmailDataProvider(),
         );
 
         $this->assertSame($expectedResult, $disposableEmailValidation->getResultResponse());
@@ -30,7 +32,7 @@ class DisposableEmailValidatorTest extends TestCase
             ['dave@something.com', false],
             ['dave@bestvpn.top', true],
             ['dave@bel.kr', true],
-            ['dave@10minutemail.de', true]
+            ['dave@10minutemail.de', true],
         ];
     }
 }

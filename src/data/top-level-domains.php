@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @see https://data.iana.org/TLD/tlds-alpha-by-domain.txt
  */
- 
+
 return [
     'aaa',
     'aarp',
@@ -1511,4 +1513,3 @@ return [
     'zuerich',
     'zw',
 ];
- 

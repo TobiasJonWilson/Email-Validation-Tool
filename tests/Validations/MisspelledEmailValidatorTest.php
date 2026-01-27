@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Tests\Validations;
 
 use EmailValidation\EmailAddress;
@@ -16,7 +18,7 @@ class MisspelledEmailValidatorTest extends TestCase
     {
         $misspelledEmailValidator = new MisspelledEmailValidator(
             new EmailAddress($emailAddress),
-            new EmailDataProvider()
+            new EmailDataProvider(),
         );
 
         $this->assertSame($expectedResult, $misspelledEmailValidator->getResultResponse());
@@ -31,7 +33,7 @@ class MisspelledEmailValidatorTest extends TestCase
             ['dave@yahoo.oe', 'dave@yahoo.de'],
             ['dave@a-made-up-domain.infi', 'dave@a-made-up-domain.info'],
             ['info@iroland.cim', 'info@ireland.com'],
-            ['info@gmail.com', '']
+            ['info@gmail.com', ''],
         ];
     }
 }

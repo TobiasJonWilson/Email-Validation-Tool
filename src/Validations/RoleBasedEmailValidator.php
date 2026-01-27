@@ -16,7 +16,7 @@ class RoleBasedEmailValidator extends Validator implements ValidatorInterface
         return in_array(
             $this->getEmailAddress()->getNamePart(),
             $this->getEmailDataProvider()->getRoleEmailPrefixes(),
-            true
+            true,
         );
     }
 }

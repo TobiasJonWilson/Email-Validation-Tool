@@ -20,10 +20,9 @@ class EmailValidator
     public function __construct(
         EmailAddress $emailAddress,
         ValidationResults $validationResults,
-        EmailDataProviderInterface $emailDataProvider
-    )
-    {
-        $this->emailAddress = $emailAddress;
+        EmailDataProviderInterface $emailDataProvider,
+    ) {
+        $this->emailAddress      = $emailAddress;
         $this->validationResults = $validationResults;
         $this->emailDataProvider = $emailDataProvider;
     }

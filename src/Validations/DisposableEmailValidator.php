@@ -16,7 +16,7 @@ class DisposableEmailValidator extends Validator implements ValidatorInterface
         return in_array(
             $this->getEmailAddress()->getHostPart(),
             $this->getEmailDataProvider()->getDisposableEmailProviders(),
-            true
+            true,
         );
     }
 }

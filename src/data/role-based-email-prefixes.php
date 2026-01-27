@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @see https://github.com/mixmaxhq/role-based-email-addresses
  * @see http://kb.mailchimp.com/lists/growth/limits-on-role-based-addresses
@@ -12,6 +14,12 @@ return [
     '2018',
     '2019',
     '2020',
+    '2021',
+    '2022',
+    '2023',
+    '2024',
+    '2025',
+    '2026',
     'aberdeen',
     'abingdon',
     'abuse',
@@ -843,6 +851,5 @@ return [
     'wordpress',
     'work',
     'writers',
-    'www'
+    'www',
 ];
-

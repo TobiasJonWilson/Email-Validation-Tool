@@ -3,3 +3,9 @@ composer.lock
 coverage
 .idea
 coverage.xml
+.php-cs-fixer.dist.php
+.phpunit.result.cache
+php-cs-fixer.bat
+php-cs-fixer.php
+phpunit.xml.bak
+.php-cs-fixer.cache

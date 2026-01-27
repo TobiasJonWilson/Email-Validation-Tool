@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EmailValidation\Tests\Validations;
 
 use EmailValidation\EmailAddress;
@@ -16,7 +18,7 @@ class FreeEmailProviderValidatorTest extends TestCase
     {
         $freeEmailServiceValidator = new FreeEmailServiceValidator(
             new EmailAddress($emailAddress),
-            new EmailDataProvider()
+            new EmailDataProvider(),
         );
 
         $this->assertSame($expectedResult, $freeEmailServiceValidator->getResultResponse());

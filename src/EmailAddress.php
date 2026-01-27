@@ -7,6 +7,7 @@ namespace EmailValidation;
 class EmailAddress
 {
     public const EMAIL_NAME_PART = 0;
+
     public const EMAIL_HOST_PART = 1;
 
     private string $emailAddress;
