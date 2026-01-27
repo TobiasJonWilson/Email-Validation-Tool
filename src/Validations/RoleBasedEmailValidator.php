@@ -8,7 +8,7 @@ class RoleBasedEmailValidator extends Validator implements ValidatorInterface
 {
     public function getValidatorName(): string
     {
-        return 'role_or_business_email'; // @codeCoverageIgnore
+        return 'isBusiness'; // @codeCoverageIgnore
     }
 
     public function getResultResponse(): bool

@@ -15,7 +15,7 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
 
     public function getValidatorName(): string
     {
-        return 'possible_email_correction'; // @codeCoverageIgnore
+        return 'altAddress'; // @codeCoverageIgnore
     }
 
     public function getResultResponse(): string

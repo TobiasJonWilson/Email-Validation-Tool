@@ -55,7 +55,7 @@ class EmailValidationTest extends TestCase
         /** @var ValidFormatValidator|MockInterface $mockValidation */
         $mockValidation = Mockery::mock(ValidFormatValidator::class);
 
-        $mockValidation->shouldReceive('getValidatorName')->andReturn('valid_format');
+        $mockValidation->shouldReceive('getValidatorName')->andReturn('validFormat');
         $mockValidation->shouldReceive('getResultResponse')->andReturn(true);
         $mockValidation->shouldReceive('setEmailAddress')->andReturnSelf();
         $mockValidation->shouldReceive('setEmailDataProvider')->andReturnSelf();

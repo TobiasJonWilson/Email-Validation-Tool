@@ -10,7 +10,7 @@ class MxRecordsValidator extends Validator implements ValidatorInterface
 
     public function getValidatorName(): string
     {
-        return 'valid_mx_records'; // @codeCoverageIgnore
+        return 'validMX'; // @codeCoverageIgnore
     }
 
     public function getResultResponse(): bool

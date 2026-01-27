@@ -8,7 +8,7 @@ class ValidFormatValidator extends Validator implements ValidatorInterface
 {
     public function getValidatorName(): string
     {
-        return 'valid_format'; // @codeCoverageIgnore
+        return 'validFormat'; // @codeCoverageIgnore
     }
 
     public function getResultResponse(): bool

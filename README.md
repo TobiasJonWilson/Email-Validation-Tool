@@ -41,12 +41,12 @@ Expected output:
 
 ```json
 {
-"valid_format": true,
-"valid_mx_records": false,
-"possible_email_correction": "dave@gmail.com",
-"free_email_provider": false,
-"disposable_email_provider": false,
-"role_or_business_email": false,
-"valid_host": false
+"validFormat": true,
+"validMX": false,
+"altAddress": "dave@gmail.com",
+"isFree": false,
+"isDisposable": false,
+"isBusiness": false,
+"validHost": false
 }
 ```

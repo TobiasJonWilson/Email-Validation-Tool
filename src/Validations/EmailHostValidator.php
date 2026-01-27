@@ -8,7 +8,7 @@ class EmailHostValidator extends Validator implements ValidatorInterface
 {
     public function getValidatorName(): string
     {
-        return 'valid_host'; // @codeCoverageIgnore
+        return 'validHost'; // @codeCoverageIgnore
     }
 
     public function getResultResponse(): bool
