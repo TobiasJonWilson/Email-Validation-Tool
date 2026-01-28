@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmailValidation;
 
-class EmailDataProvider implements EmailDataProviderInterface
+final class EmailDataProvider implements EmailDataProviderInterface
 {
     private const EMAIL_PROVIDERS = __DIR__ . '/data/email-providers.php';
 

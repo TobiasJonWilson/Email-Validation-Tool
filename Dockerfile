@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8.3-fpm
 
 RUN curl https://getcomposer.org/installer > composer-setup.php \
  && php composer-setup.php \

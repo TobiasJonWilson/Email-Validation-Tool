@@ -6,7 +6,7 @@ namespace EmailValidation\Validations;
 
 interface ValidatorInterface
 {
-    public function getResultResponse();
+    public function getResultResponse(): mixed;
 
     public function getValidatorName(): string;
 }

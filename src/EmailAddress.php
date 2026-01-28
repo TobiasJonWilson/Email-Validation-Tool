@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace EmailValidation;
 
-class EmailAddress
+final class EmailAddress
 {
     public const EMAIL_NAME_PART = 0;
 

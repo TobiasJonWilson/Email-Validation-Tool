@@ -8,10 +8,10 @@ class FreeEmailServiceValidator extends Validator implements ValidatorInterface
 {
     public function getValidatorName(): string
     {
-        return 'isFree'; //@codeCoverageIgnore
+        return 'isFree'; // @codeCoverageIgnore
     }
 
-    public function getResultResponse()
+    public function getResultResponse(): bool
     {
         return in_array(
             $this->getEmailAddress()->getHostPart(),

@@ -2,7 +2,7 @@
 
 ### By [daveearley](https://github.com/daveearley) 
 
-**An extensible email validation library for PHP 7+**
+**An extensible email validation library for PHP 8.3+**
 
 The aim of this library is to offer a more detailed email validation report than simply checking if an email is the valid format, and also to make it possible to easily add custom validations.
 
@@ -42,11 +42,17 @@ Expected output:
 ```json
 {
 "validFormat": true,
+"validHost": false,
 "validMX": false,
 "altAddress": "dave@gmail.com",
 "isFree": false,
 "isDisposable": false,
-"isBusiness": false,
-"validHost": false
+"isBusiness": false
 }
 ```
+
+## Acknowledgements
+
+This project is a fork and adaptation of the excellent [PHP Email Validation Tool](https://github.com/daveearley/PHP-Email-Validation-Tool) created by [Dave Earley](https://github.com/daveearley). 
+
+We highly recommend checking out the [original repository](https://github.com/daveearley/PHP-Email-Validation-Tool) to see the original work and consider using it for your projects. This fork has been modified to match our specific requirements (camelCase output, custom validator ordering), but the core validation logic and architecture are based on Dave's original implementation.

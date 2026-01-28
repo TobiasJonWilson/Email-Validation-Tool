@@ -13,17 +13,17 @@ use EmailValidation\Validations\RoleBasedEmailValidator;
 use EmailValidation\Validations\Validator;
 use EmailValidation\Validations\ValidFormatValidator;
 
-class EmailValidatorFactory
+final class EmailValidatorFactory
 {
     /** @var Validator[] */
     protected static array $defaultValidators = [
         ValidFormatValidator::class,
+        EmailHostValidator::class,
         MxRecordsValidator::class,
         MisspelledEmailValidator::class,
         FreeEmailServiceValidator::class,
         DisposableEmailValidator::class,
         RoleBasedEmailValidator::class,
-        EmailHostValidator::class,
     ];
 
     public static function create(string $emailAddress): EmailValidator

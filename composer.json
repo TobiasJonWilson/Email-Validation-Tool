@@ -1,6 +1,6 @@
 {
   "name": "tobiasjonwilson/email-validation-tool",
-  "description": "Forked from daveearley/Email-Validation-Tool. An easy to use, accurate-ish & extensible email validation library for PHP 7+",
+  "description": "Forked from daveearley/Email-Validation-Tool. An easy to use, accurate-ish & extensible email validation library for PHP 8.3+. Original work by Dave Earley - check out the original repository at https://github.com/daveearley/PHP-Email-Validation-Tool",
   "type": "library",
   "keywords": [
     "email validation",
@@ -10,13 +10,13 @@
     "disposable email check"
   ],
   "require": {
-    "php": ">=7.4",
+    "php": ">=8.3",
     "ext-json": "*"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.88",
-    "mockery/mockery": "^1.3",
-    "phpunit/phpunit": "^9.3"
+    "friendsofphp/php-cs-fixer": "^3.93.0",
+    "mockery/mockery": "^1.6.12",
+    "phpunit/phpunit": "^9.6.34"
   },
   "license": "MIT",
   "autoload": {
@@ -28,7 +28,12 @@
   "authors": [
     {
       "name": "Dave Earley",
-      "email": "dave@earley.email"
+      "email": "dave@earley.email",
+      "role": "Original Author"
+    },
+    {
+      "name": "Tobias Wilson",
+      "role": "Maintainer"
     }
   ],
   "scripts": {

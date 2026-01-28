@@ -56,10 +56,7 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
         return '';
     }
 
-    /**
-     * @return bool|null|string
-     */
-    private function findDomainSuggestion()
+    private function findDomainSuggestion(): ?string
     {
         $domain        = $this->getEmailAddress()->getHostPart();
         $possibleMatch = $this->findClosestWord(
@@ -89,10 +86,7 @@ class MisspelledEmailValidator extends Validator implements ValidatorInterface
         return $closestMatch;
     }
 
-    /**
-     * @return bool|null|string
-     */
-    private function findTopLevelDomainSuggestion()
+    private function findTopLevelDomainSuggestion(): ?string
     {
         $topLevelDomain        = $this->getEmailAddress()->getTopLevelDomainPart();
         $possibleTopLevelMatch = $this->findClosestWord(

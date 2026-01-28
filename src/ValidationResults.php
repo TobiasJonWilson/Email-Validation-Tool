@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace EmailValidation;
 
-class ValidationResults
+final class ValidationResults
 {
     private array $results = [];
 
-    public function addResult(string $resultName, $resultValue)
+    public function addResult(string $resultName, mixed $resultValue): void
     {
         $this->results[$resultName] = $resultValue;
     }
@@ -20,7 +20,7 @@ class ValidationResults
 
     public function asJson(): string
     {
-        return json_encode($this->results);
+        return json_encode($this->results, JSON_UNESCAPED_SLASHES);
     }
 
     public function hasResults(): bool
