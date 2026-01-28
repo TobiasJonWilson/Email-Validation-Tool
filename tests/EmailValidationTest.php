@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace EmailValidation\Tests;
 
 use EmailValidation\EmailAddress;
-use EmailValidation\EmailDataProvider;
+use EmailValidation\EmailDataProviderInterface;
 use EmailValidation\EmailValidator;
 use EmailValidation\ValidationResults;
 use EmailValidation\Validations\MisspelledEmailValidator;
@@ -25,10 +25,6 @@ class EmailValidationTest extends TestCase
 
     public function testRunValidation(): void
     {
-        $this->validationResultsMock
-            ->shouldReceive('addResult')
-            ->times(1);
-
         /** @var MisspelledEmailValidator|MockInterface $mockValidation */
         $mockValidation = Mockery::mock(MisspelledEmailValidator::class);
 
@@ -39,19 +35,15 @@ class EmailValidationTest extends TestCase
 
         $this->emailValidation->registerValidators([$mockValidation]);
         $this->emailValidation->runValidation();
+
+        $this->assertSame(
+            ['hello' => 'hello'],
+            $this->validationResultsMock->asArray(),
+        );
     }
 
     public function testGetValidationResults(): void
     {
-        $this->validationResultsMock->shouldReceive('addResult')->times(1);
-        $this->validationResultsMock->shouldReceive('hasResults')->andReturn(false);
-        $this->validationResultsMock->shouldReceive('getValidationResults')->andReturnSelf();
-        $this->validationResultsMock->shouldReceive('asArray')->andReturn(
-            [
-                'validFormat' => true,
-            ],
-        );
-
         /** @var ValidFormatValidator|MockInterface $mockValidation */
         $mockValidation = Mockery::mock(ValidFormatValidator::class);
 
@@ -64,13 +56,17 @@ class EmailValidationTest extends TestCase
 
         $actual = $this->emailValidation->getValidationResults();
         $this->assertInstanceOf(ValidationResults::class, $actual);
+        $this->assertSame(
+            ['validFormat' => true],
+            $actual->asArray(),
+        );
     }
 
     protected function setUp(): void
     {
-        $emailMock                   = Mockery::mock(EmailAddress::class);
-        $this->validationResultsMock = Mockery::mock(ValidationResults::class);
-        $emailDataProviderMock       = Mockery::mock(EmailDataProvider::class);
+        $emailMock                   = new EmailAddress('user@example.com');
+        $this->validationResultsMock = new ValidationResults();
+        $emailDataProviderMock       = Mockery::mock(EmailDataProviderInterface::class);
         $this->emailValidation       = new EmailValidator(
             $emailMock,
             $this->validationResultsMock,

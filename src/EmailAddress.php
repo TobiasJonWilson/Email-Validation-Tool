@@ -12,9 +12,9 @@ final class EmailAddress
 
     private string $emailAddress;
 
-    public function __construct(string $emailAddress)
+    public function __construct(mixed $emailAddress)
     {
-        $this->emailAddress = $emailAddress;
+        $this->emailAddress = is_string($emailAddress) ? trim($emailAddress) : '';
     }
 
     public function getNamePart(): ?string

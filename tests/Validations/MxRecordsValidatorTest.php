@@ -14,30 +14,62 @@ class MxRecordsValidatorTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
-    private MxRecordsValidator $mxValidator;
+    /** @var MxRecordsValidator|Mockery\MockInterface */
+    private $mxValidator;
 
-    public function testMxRecordIsChecked(): void
+    public function testMxRecordIsChecked_andReturnsTrueWhenAtLeastTwoRecordsExist(): void
     {
-        foreach (['MX', 'AAAA', 'NS', 'A'] as $dns) {
+        $this->mxValidator
+        ->shouldAllowMockingProtectedMethods()
+        ->shouldReceive('checkDns')
+        ->once()
+        ->with('gmail.com.', 'NS')
+        ->andReturn(true);
+
+        $this->mxValidator
+        ->shouldAllowMockingProtectedMethods()
+        ->shouldReceive('checkDns')
+        ->once()
+        ->with('gmail.com.', 'MX')
+        ->andReturn(true);
+
+        $this->mxValidator
+        ->shouldAllowMockingProtectedMethods()
+        ->shouldReceive('checkDns')
+        ->once()
+        ->with('gmail.com.', 'A')
+        ->andReturn(false);
+
+        $this->mxValidator
+        ->shouldAllowMockingProtectedMethods()
+        ->shouldReceive('checkDns')
+        ->once()
+        ->with('gmail.com.', 'AAAA')
+        ->andReturn(false);
+
+        $this->assertTrue($this->mxValidator->getResultResponse());
+    }
+
+    public function testMxRecordIsChecked_andReturnsFalseWhenFewerThanTwoRecordsExist(): void
+    {
+        foreach (['NS', 'MX', 'A', 'AAAA'] as $dns) {
             $this->mxValidator
-                ->shouldReceive('checkDns')
-                ->with('gmail.com.', $dns);
+            ->shouldAllowMockingProtectedMethods()
+            ->shouldReceive('checkDns')
+            ->once()
+            ->with('gmail.com.', $dns)
+            ->andReturn($dns === 'NS'); // only one true
         }
 
-        $this->mxValidator->getResultResponse();
+        $this->assertFalse($this->mxValidator->getResultResponse());
     }
 
     protected function setUp(): void
     {
         $this->mxValidator = Mockery::mock(MxRecordsValidator::class, [
-            new EmailAddress('dave@gmail.com'),
+        new EmailAddress('dave@gmail.com'),
         ])
-            ->shouldAllowMockingProtectedMethods()
-            ->shouldReceive('getResultResponse')
-            ->passthru()
-            ->getMock()
-            ->shouldReceive('getEmailAddress')
-            ->passthru()
-            ->getMock();
+        ->shouldAllowMockingProtectedMethods()
+        ->makePartial();
     }
 }

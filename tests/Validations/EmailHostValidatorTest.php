@@ -19,8 +19,14 @@ class EmailHostValidatorTest extends TestCase
 
     public function testHostIsChecked(): void
     {
-        $this->hostValidator->shouldReceive('getHostByName')->with('gmail.com');
-        $this->hostValidator->getResultResponse();
+        $this->hostValidator
+            ->shouldAllowMockingProtectedMethods()
+            ->shouldReceive('getHostByName')
+            ->once()
+            ->with('gmail.com')
+            ->andReturn('142.250.72.69'); // any non-equal string simulates DNS resolution
+
+        $this->assertTrue($this->hostValidator->getResultResponse());
     }
 
     protected function setUp(): void
