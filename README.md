@@ -1,12 +1,12 @@
-## Internal adaptation of [PHP Email Validation Tool](https://github.com/daveearley/PHP-Email-Validation-Tool)
+## Adaptation of the PHP Email Validation Tool
 
-### By [daveearley](https://github.com/daveearley) 
+### Based on the original project [PHP Email Validation Tool](https://github.com/daveearley/PHP-Email-Validation-Tool) by [daveearley](https://github.com/daveearley) 
 
 **An extensible email validation library for PHP 8.3+**
 
-The aim of this library is to offer a more detailed email validation report than simply checking if an email is the valid format, and also to make it possible to easily add custom validations.
+The aim of this library is to offer a more detailed email validation report than simply checking if an email is the valid format and also to make it possible to easily add custom validations.
 
-Currently this tool checks the following:
+Currently, this tool checks the following:
 
 
 | Validation  | Description |
@@ -19,7 +19,7 @@ Currently this tool checks the following:
 | Free email provider^  | Checks if the email is a free email (e.g person@yahoo.com).  |
 | Misspelled Email ^ | Checks the email for possible typos and returns a suggested correction (e.g hi@gmaol.con -> hi@gmail.com).  |
 
-^ **Data used for these checks can be found [here](https://github.com/daveearley/Email-Validation-Tool/tree/master/src/data)**
+^ **Data used for these checks can be found [here](https://github.com/TobiasJonWilson/Email-Validation-Tool/tree/master/src/data)**
 
 
 ## Quick Start
@@ -55,4 +55,8 @@ Expected output:
 
 This project is a fork and adaptation of the excellent [PHP Email Validation Tool](https://github.com/daveearley/PHP-Email-Validation-Tool) created by [Dave Earley](https://github.com/daveearley). 
 
-We highly recommend checking out the [original repository](https://github.com/daveearley/PHP-Email-Validation-Tool) to see the original work and consider using it for your projects. This fork has been modified to match our specific requirements (camelCase output, custom validator ordering), but the core validation logic and architecture are based on Dave's original implementation.
+I highly recommend checking out the [original repository](https://github.com/daveearley/PHP-Email-Validation-Tool) to see the original work and consider using it for your projects. This fork has been modified to match our specific requirements (camelCase output, custom validator ordering), but the core validation logic and architecture are based on Dave's original implementation.
+
+## AI Tools Disclosure
+
+This project was developed with the assistance of AI coding tools, including [Cursor](https://cursor.sh/) and [GitHub Copilot](https://github.com/features/copilot) within my PHPStorm IDE. These tools were used to help with code refactoring, type hint improvements, documentation updates, and code review. All code changes were reviewed by me before being committed, and the final codebase reflects my decisions around the intended usage and coding standards.
