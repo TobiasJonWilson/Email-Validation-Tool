@@ -9,3 +9,4 @@ php-cs-fixer.bat
 php-cs-fixer.php
 phpunit.xml.bak
 .php-cs-fixer.cache
+/build
