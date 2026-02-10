@@ -1,6 +1,6 @@
 {
   "name": "tobiasjonwilson/email-validation-tool",
-  "description": "An easy to use, accurate-ish & extensible email validation library for PHP 8.3+. Based on the original work by Dave Earley, this has been modified to suit my formatting styles and use cases. Check out the original repository at https://github.com/daveearley/PHP-Email-Validation-Tool",
+  "description": "An easy to use, accurate-ish & extensible email validation library for PHP 8.3+. Based on the original work by Dave Earley, this has been modified to suit my formatting styles and use cases. Check out the original repository at https://github.com/daveearley/Email-Validation-Tool",
   "type": "library",
   "keywords": [
     "email validation",

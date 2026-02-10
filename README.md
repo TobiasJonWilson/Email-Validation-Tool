@@ -55,7 +55,7 @@ Expected output:
 
 This project is a fork and adaptation of the excellent [Email Validation Tool](https://github.com/daveearley/Email-Validation-Tool) created by [Dave Earley](https://github.com/daveearley). 
 
-I highly recommend checking out the [original repository](https://github.com/daveearley/PHP-Email-Validation-Tool) to see the original work and consider using it for your projects. This fork has been modified to match our specific requirements (camelCase output, custom validator ordering), but the core validation logic and architecture are based on Dave's original implementation.
+I highly recommend checking out the [original repository](https://github.com/daveearley/Email-Validation-Tool) to see the original work and consider using it for your projects. This fork has been modified to match our specific requirements (camelCase output, custom validator ordering), but the core validation logic and architecture are based on Dave's original implementation.
 
 ## AI Tools Disclosure
 
